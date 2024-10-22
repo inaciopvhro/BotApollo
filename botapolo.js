@@ -82,7 +82,7 @@ const client = new Client({
   puppeteer: { headless: true,
   //executablePath: '/usr/bin/google-chrome-stable',
   //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  //executablePath: '/usr/bin/chromium-browser',  
+  executablePath: '/usr/bin/chromium-browser',  
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -309,7 +309,6 @@ function confighora(horaenvio) {
   function get_random (list) {
     return list[Math.floor((Math.random()*list.length))];
   }
-  
   client.getChats().then(chats => {
     const groups = chats.filter(chat => chat.isGroup);
         if (groups.length == 0) {
@@ -636,7 +635,7 @@ client.on('group_join', async (notification) => {
   // MENSAGEM DE SAUDAÇÃO
   if (notification.id.remote) {
     const contact = await client.getContactById(notification.id.participant)
-    const texto1 = ', tudo bem? Seja bem vindo ao grupo *DICAS DAS GAROTAS*🎰💕🍀\n\n👉 *Se vocês estão procurando um grupo que divulga plataformas confiáveis estão no lugar certo…*\n\n📌Aqui postamos plataformas com gerentes confiáveis, horários, link de porcentagem, dicas de estratégias e sorteios de bancas\n\nQuem não quiser participar pode estar saindo sem problemas 🫶🏼\n\n📌*O INTUITO AQUI É VÊ VOCÊS FAZENDO GRANDES GANHOS*🥰\n\n🔞 Proibido para menores de 18 anos\nJOGUE COM RESPONSABILIDADE\nBoa Sorte';
+    const texto1 = ', tudo bem? Seja bem vindo ao Grupo *VIP P.B*🎰💕🍀\n\n👉 *Se vocês estão procurando um grupo que divulga plataformas confiáveis estão no lugar certo…*\n\n📌Aqui postamos plataformas com gerentes confiáveis, horários, link de porcentagem, dicas de estratégias e sorteios de bancas\n\nQuem não quiser participar pode estar saindo sem problemas 🫶🏼\n\n📌*O INTUITO AQUI É VÊ VOCÊS FAZENDO GRANDES GANHOS*🥰\n\n🔞 Proibido para menores de 18 anos\nJOGUE COM RESPONSABILIDADE\nBoa Sorte';
     const textos = [texto1];
 
     const mensagemTexto = `@${contact.number}!` + textos;
