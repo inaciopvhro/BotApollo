@@ -549,7 +549,7 @@ client.on('message_create', async msg => {
       }
       if (quotedMsg.hasMedia) {
         
-        const attachmentData = await inboundMsg.downloadMedia();
+        const attachmentData = await quotedMsg.downloadMedia();
         await client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body }, { mentions: mentions });
       } else {
         await client.sendMessage(msg.from, quotedMsg.body, { mentions: mentions });
