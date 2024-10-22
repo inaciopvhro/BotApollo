@@ -550,11 +550,16 @@ client.on('message_create', async msg => {
       if (quotedMsg.hasMedia) {
         
         const attachmentData = await quotedMsg.downloadMedia();
-        await chat.sendMessage(attachmentData, { caption: quotedMsg.body }, { mentions: mentions });
+        await chat.sendMessage(attachmentData, { caption: quotedMsg.body, mentions: mentions });
       } else {
         await chat.sendMessage(quotedMsg.body, { mentions: mentions });
       }  
-  }}); 
+  }
+  else if (msg.body === '!cht') {
+    const chats = await client.getChats();
+    client.sendMessage(msg.from, `The bot has ${chats.length} chats open.`);
+}
+}); 
 
 // EVENTO DE NOVO USUÁRIO EM GRUPO
 client.on('group_join', async (notification) => {
