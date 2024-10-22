@@ -82,7 +82,7 @@ const client = new Client({
   puppeteer: { headless: true,
   //executablePath: '/usr/bin/google-chrome-stable',
   //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  executablePath: '/usr/bin/chromium-browser',  
+  //executablePath: '/usr/bin/chromium-browser',  
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -102,7 +102,6 @@ client.initialize();
 io.on('connection', function(socket) {
   socket.emit('message', '© BOT-Zeus - Iniciado');
   socket.emit('qr', './whatsappDesconetado.png');
-  console.log("iniciado");
 
 client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
@@ -458,7 +457,7 @@ client.on('message', async msg => {
                 groups.forEach((group, i) => {
                   setTimeout(function() {
                     try{
-                      client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+"\nidmsg" });
+                      client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+"\nenv3" });
                       
                         } catch(e){}
                   },1000 + Math.floor(Math.random() * 4000) * (i+1) )
@@ -569,6 +568,8 @@ client.on('message', async msg => {
 // ENVIAR MSG COM MENÇÃO AOS PARTICIPANTES
 client.on('message_create', async msg => {
   if (msg.body === '!pdr' && msg.hasQuotedMsg) {
+    const quotedMsg = await msg.getQuotedMessage();  
+    console.log('iniciar pdr')
     const chat = await client.getChatById(msg.id.remote);
     let mentions = [];
     for(let participant of chat.participants) {
@@ -578,14 +579,12 @@ client.on('message_create', async msg => {
         const contact = await client.getContactById(participant.id._serialized);
         mentions.push(contact);
         } catch (e)
-          {console.log('© Bot Zeus: '+e);}
+          {console.log('© Bot Apollo: '+e);}
       }
-      const quotedMsg = await msg.getQuotedMessage();  
       if (quotedMsg.hasMedia) {
         const attachmentData = await quotedMsg.downloadMedia();
         await client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body, mentions: mentions});
-      }        
-      
+      }
   }}); 
 
 // EVENTO DE NOVO USUÁRIO EM GRUPO
