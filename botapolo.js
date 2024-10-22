@@ -20,7 +20,7 @@ var nIntervId2;
 var nIntervId3;
 
 // NUMEROS AUTORIZADOS
-const permissaoBot = ["556992102573@c.us"];
+const permissaoBot = ["556992102573@c.us", "5511994011877@c.us", "5515997863796@c.us", "557592364492@c.us", "556993654141@c.us" ];
 
 function delay(t, v) {
   return new Promise(function(resolve) {
@@ -82,7 +82,7 @@ const client = new Client({
   puppeteer: { headless: true,
   //executablePath: '/usr/bin/google-chrome-stable',
   //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  executablePath: '/usr/bin/chromium-browser',  
+  //executablePath: '/usr/bin/chromium-browser',  
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -361,78 +361,118 @@ client.on('message', async msg => {
   
   // ENVIAR MSG COM TEMPO DETERMINADO 
   if (msg.body.startsWith('!env1 ') && msg.hasQuotedMsg) {
+    if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
+    const quotedMsg = await msg.getQuotedMessage();
+    const attachmentData = await quotedMsg.downloadMedia();
     const chat = await client.getChatById(msg.id.remote);
     if (chat.isGroup) {
-      if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
-        var temporizador = msg.body.slice(6);
-        var inttempo = Number(temporizador);
-        inttempo = inttempo*60000;
-        console.log(inttempo);
-        if (inttempo === 0) {
-          clearInterval(nIntervId1);
-        } else {
-          const quotedMsg = await msg.getQuotedMessage();
-          const attachmentData = await quotedMsg.downloadMedia();
-          nIntervId1 = setInterval(() => {
-            if (quotedMsg.hasMedia) {
-              client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body });
-            } else {
-              client.sendMessage(msg.from, quotedMsg.body);
-            }
+      var temporizador = msg.body.slice(6);
+      var inttempo = Number(temporizador);
+      inttempo = inttempo*60000;
+      console.log(inttempo);
+      if (inttempo === 0) {
+        clearInterval(nIntervId1);
+      } else {
+        client.getChats().then(chats => {
+          const groups = chats.filter(chat => chat.isGroup);
+
+          if (groups.length == 0) {
+          }
+          else {
+            nIntervId1 = setInterval(() => {
+            groups.forEach((group, i) => {
+              setTimeout(function() {
+                try {
+                  if (quotedMsg.hasMedia) {
+                    group.sendMessage(attachmentData, { caption: quotedMsg.body });
+                  }
+                } catch(e){
+                  console.log('erro ao enviar msg');
+                }
+              },1000 + Math.floor(Math.random() * 4000) * (i+1) )
+           });
           }, inttempo)     
-        }
+         }
+        }); 
+      }
     }
   }
 
     // ENVIAR MSG COM TEMPO DETERMINADO 
     if (msg.body.startsWith('!env2 ') && msg.hasQuotedMsg) {
-      const chat = await client.getChatById(msg.id.remote);
-      if (chat.isGroup) {
-        if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
-          var temporizador = msg.body.slice(6);
-          var inttempo = Number(temporizador);
-          inttempo = inttempo*60000;
-          console.log(inttempo);
-          if (inttempo === 0) {
-            clearInterval(nIntervId2);
-          } else {
-            const { from, to, body, hasMedia, mediaKey } = quotedMsg
-            quotedMsg = await msg.getQuotedMessage();
-            const attachmentData = await quotedMsg.downloadMedia();
-            nIntervId2 = setInterval(() => {
-              if (quotedMsg.hasMedia) {
-                client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body });
-              } else {
-                client.sendMessage(msg.from, quotedMsg.body);
-              }
-            }, inttempo)     
+      if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
+    const quotedMsg = await msg.getQuotedMessage();
+    const attachmentData = await quotedMsg.downloadMedia();
+    const chat = await client.getChatById(msg.id.remote);
+    if (chat.isGroup) {
+      var temporizador = msg.body.slice(6);
+      var inttempo = Number(temporizador);
+      inttempo = inttempo*60000;
+      console.log(inttempo);
+      if (inttempo === 0) {
+        clearInterval(nIntervId2);
+      } else {
+        client.getChats().then(chats => {
+          const groups = chats.filter(chat => chat.isGroup);
+
+          if (groups.length == 0) {
           }
+          else {
+            nIntervId2 = setInterval(() => {
+            groups.forEach((group, i) => {
+              setTimeout(function() {
+                try {
+                  if (quotedMsg.hasMedia) {
+                    group.sendMessage(attachmentData, { caption: quotedMsg.body });
+                  }
+                } catch(e){
+                  console.log('erro ao enviar msg');
+                }
+              },1000 + Math.floor(Math.random() * 4000) * (i+1) )
+           });
+          }, inttempo)     
+         }
+        }); 
       }
     }
+  }
 
       // ENVIAR MSG COM TEMPO DETERMINADO 
   if (msg.body.startsWith('!env3 ') && msg.hasQuotedMsg) {
+    if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
+    const quotedMsg = await msg.getQuotedMessage();
+    const attachmentData = await quotedMsg.downloadMedia();
     const chat = await client.getChatById(msg.id.remote);
     if (chat.isGroup) {
-      if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
-        var temporizador = msg.body.slice(6);
-        var inttempo = Number(temporizador);
-        inttempo = inttempo*60000;
-        console.log(inttempo);
-        if (inttempo === 0) {
-          clearInterval(nIntervId3);
-        } else {
-          const quotedMsg = await msg.getQuotedMessage();
-          const attachmentData = await quotedMsg.downloadMedia();
-          nIntervId3 = setInterval(() => {
-            if (quotedMsg.hasMedia) {
-              console.log('e midia');
-              client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body });
-            } else {
-              client.sendMessage(msg.from, quotedMsg.body);
-            }
+      var temporizador = msg.body.slice(6);
+      var inttempo = Number(temporizador);
+      inttempo = inttempo*60000;
+      console.log(inttempo);
+      if (inttempo === 0) {
+        clearInterval(nIntervId3);
+      } else {
+        client.getChats().then(chats => {
+          const groups = chats.filter(chat => chat.isGroup);
+
+          if (groups.length == 0) {
+          }
+          else {
+            nIntervId3 = setInterval(() => {
+            groups.forEach((group, i) => {
+              setTimeout(function() {
+                try {
+                  if (quotedMsg.hasMedia) {
+                    group.sendMessage(attachmentData, { caption: quotedMsg.body });
+                  }
+                } catch(e){
+                  console.log('erro ao enviar msg');
+                }
+              },1000 + Math.floor(Math.random() * 4000) * (i+1) )
+           });
           }, inttempo)     
-        }
+         }
+        }); 
+      }
     }
   }
 
@@ -534,30 +574,27 @@ client.on('message', async msg => {
 // ENVIAR MSG COM MENÇÃO AOS PARTICIPANTES
 client.on('message_create', async msg => {
   if (msg.body === '!pdr' && msg.hasQuotedMsg) {
-    const quotedMsg = await msg.getQuotedMessage();  
-    
     const chat = await msg.getChat();
-    let mentions = [];
-    for(let participant of chat.participants) {
-      if (participant.id._serialized === msg.author && !participant.isAdmin) 
-        return msg.reply("Você não pode enviar esse comando.");
-      try{
-        const contact = await client.getContactById(participant.id._serialized);
-        mentions.push(contact);
-        } catch (e)
-          {console.log('© Bot Apollo: '+e);}
+    const quotedMsg = await msg.getQuotedMessage();  
+    try{
+      let mentions = [];
+      for(let participant of chat.participants) {
+          const contact = await client.getContactById(participant.id._serialized);
+          mentions.push(contact);
+          
       }
       if (quotedMsg.hasMedia) {
-        
         const attachmentData = await quotedMsg.downloadMedia();
-        await chat.sendMessage(attachmentData, { caption: quotedMsg.body, mentions: mentions });
-      } else {
-        await chat.sendMessage(quotedMsg.body, { mentions: mentions });
-      }  
+        await chat.sendMessage(attachmentData, {mentions: mentions, caption: quotedMsg.body});
+      }
+    } catch (e){
+      console.log('© Bot Apollo '+e)
+    }
+
   }
   else if (msg.body === '!cht') {
     const chats = await client.getChats();
-    client.sendMessage(msg.from, `The bot has ${chats.length} chats open.`);
+    client.sendMessage(msg.from, `O bot tem ${chats.length} chats abertos.`);
 }
 }); 
 
