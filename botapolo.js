@@ -375,6 +375,8 @@ client.on('message', async msg => {
           nIntervId1 = setInterval(() => {
             if (quotedMsg.hasMedia) {
               client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+'\nEnv1' });
+            } else {
+              client.sendMessage(msg.from, quotedMsg.body+'\nEnv1');
             }
           }, inttempo)     
         }
@@ -397,6 +399,8 @@ client.on('message', async msg => {
             nIntervId2 = setInterval(() => {
               if (quotedMsg.hasMedia) {
                 client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+'\nEnv2' });
+              } else {
+                client.sendMessage(msg.from, quotedMsg.body+'\nEnv2');
               }
             }, inttempo)     
           }
@@ -419,6 +423,8 @@ client.on('message', async msg => {
           nIntervId3 = setInterval(() => {
             if (quotedMsg.hasMedia) {
               client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+'\nEnv3' });
+            } else {
+              client.sendMessage(msg.from, quotedMsg.body+'\nEnv3');
             }
           }, inttempo)     
         }
@@ -539,7 +545,9 @@ client.on('message_create', async msg => {
       if (quotedMsg.hasMedia) {
         const attachmentData = await quotedMsg.downloadMedia();
         await client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body }, { mentions: mentions });
-      }
+      } else {
+        await client.sendMessage(msg.from, quotedMsg.body, { mentions: mentions });
+      }  
   }}); 
 
 // EVENTO DE NOVO USUÁRIO EM GRUPO
