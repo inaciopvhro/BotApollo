@@ -361,6 +361,7 @@ client.on('message', async msg => {
   
   // ENVIAR MSG COM TEMPO DETERMINADO 
   if (msg.body.startsWith('!env1 ') && msg.hasQuotedMsg) {
+    const chat = await client.getChatById(msg.id.remote);
     if (chat.isGroup) {
       if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
         var temporizador = msg.body.slice(6);
@@ -385,6 +386,7 @@ client.on('message', async msg => {
 
     // ENVIAR MSG COM TEMPO DETERMINADO 
     if (msg.body.startsWith('!env2 ') && msg.hasQuotedMsg) {
+      const chat = await client.getChatById(msg.id.remote);
       if (chat.isGroup) {
         if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
           var temporizador = msg.body.slice(6);
@@ -409,6 +411,7 @@ client.on('message', async msg => {
 
       // ENVIAR MSG COM TEMPO DETERMINADO 
   if (msg.body.startsWith('!env3 ') && msg.hasQuotedMsg) {
+    const chat = await client.getChatById(msg.id.remote);
     if (chat.isGroup) {
       if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
         var temporizador = msg.body.slice(6);
@@ -543,6 +546,7 @@ client.on('message_create', async msg => {
           {console.log('© Bot Apollo: '+e);}
       }
       if (quotedMsg.hasMedia) {
+        
         const attachmentData = await quotedMsg.downloadMedia();
         await client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body }, { mentions: mentions });
       } else {
