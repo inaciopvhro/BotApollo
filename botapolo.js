@@ -396,7 +396,8 @@ client.on('message', async msg => {
           if (inttempo === 0) {
             clearInterval(nIntervId2);
           } else {
-            const quotedMsg = await msg.getQuotedMessage();
+            const { from, to, body, hasMedia, mediaKey } = quotedMsg
+            quotedMsg = await msg.getQuotedMessage();
             const attachmentData = await quotedMsg.downloadMedia();
             nIntervId2 = setInterval(() => {
               if (quotedMsg.hasMedia) {
@@ -425,6 +426,7 @@ client.on('message', async msg => {
           const attachmentData = await quotedMsg.downloadMedia();
           nIntervId3 = setInterval(() => {
             if (quotedMsg.hasMedia) {
+              console.log('e midia');
               client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+'\nEnv3' });
             } else {
               client.sendMessage(msg.from, quotedMsg.body+'\nEnv3');
@@ -547,7 +549,7 @@ client.on('message_create', async msg => {
       }
       if (quotedMsg.hasMedia) {
         
-        const attachmentData = await quotedMsg.downloadMedia();
+        const attachmentData = await inboundMsg.downloadMedia();
         await client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body }, { mentions: mentions });
       } else {
         await client.sendMessage(msg.from, quotedMsg.body, { mentions: mentions });
