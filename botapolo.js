@@ -375,9 +375,9 @@ client.on('message', async msg => {
           const attachmentData = await quotedMsg.downloadMedia();
           nIntervId1 = setInterval(() => {
             if (quotedMsg.hasMedia) {
-              client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+'\nEnv1' });
+              client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body });
             } else {
-              client.sendMessage(msg.from, quotedMsg.body+'\nEnv1');
+              client.sendMessage(msg.from, quotedMsg.body);
             }
           }, inttempo)     
         }
@@ -401,9 +401,9 @@ client.on('message', async msg => {
             const attachmentData = await quotedMsg.downloadMedia();
             nIntervId2 = setInterval(() => {
               if (quotedMsg.hasMedia) {
-                client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+'\nEnv2' });
+                client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body });
               } else {
-                client.sendMessage(msg.from, quotedMsg.body+'\nEnv2');
+                client.sendMessage(msg.from, quotedMsg.body);
               }
             }, inttempo)     
           }
@@ -427,9 +427,9 @@ client.on('message', async msg => {
           nIntervId3 = setInterval(() => {
             if (quotedMsg.hasMedia) {
               console.log('e midia');
-              client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body+'\nEnv3' });
+              client.sendMessage(msg.from, attachmentData, { caption: quotedMsg.body });
             } else {
-              client.sendMessage(msg.from, quotedMsg.body+'\nEnv3');
+              client.sendMessage(msg.from, quotedMsg.body);
             }
           }, inttempo)     
         }
