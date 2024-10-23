@@ -317,8 +317,8 @@ function confighora(horaenvio) {
           groups.forEach((group, i) => {
             setTimeout(function() {
               try {
-                if (!group.id === '120363318496538868@g.us') {
-                group.sendMessage(mensagemTexto)
+                if (group.id === !'120363318496538868@g.us') {
+                  group.sendMessage(mensagemTexto)
                 }
               } catch(e){
                 console.log('erro ao enviar msg');
