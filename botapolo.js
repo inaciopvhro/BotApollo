@@ -317,7 +317,9 @@ function confighora(horaenvio) {
           groups.forEach((group, i) => {
             setTimeout(function() {
               try {
+                if (!group.id === '') {
                 group.sendMessage(mensagemTexto)
+                }
               } catch(e){
                 console.log('erro ao enviar msg');
               }
@@ -400,18 +402,18 @@ client.on('message', async msg => {
     // ENVIAR MSG COM TEMPO DETERMINADO 
     if (msg.body.startsWith('!env2 ') && msg.hasQuotedMsg) {
       if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
-    const quotedMsg = await msg.getQuotedMessage();
-    const attachmentData = await quotedMsg.downloadMedia();
-    const chat = await client.getChatById(msg.id.remote);
-    if (chat.isGroup) {
-      var temporizador = msg.body.slice(6);
-      var inttempo = Number(temporizador);
-      inttempo = inttempo*60000;
-      console.log(inttempo);
-      if (inttempo === 0) {
+      const quotedMsg = await msg.getQuotedMessage();
+      const attachmentData = await quotedMsg.downloadMedia();
+      const chat = await client.getChatById(msg.id.remote);
+      if (chat.isGroup) {
+        var temporizador = msg.body.slice(6);
+        var inttempo = Number(temporizador);
+        inttempo = inttempo*60000;
+        console.log(inttempo);
+       if (inttempo === 0) {
         clearInterval(nIntervId2);
-      } else {
-        client.getChats().then(chats => {
+        } else {
+          client.getChats().then(chats => {
           const groups = chats.filter(chat => chat.isGroup);
 
           if (groups.length == 0) {
@@ -578,6 +580,8 @@ client.on('message_create', async msg => {
     try{
       let mentions = [];
       for(let participant of chat.participants) {
+        if (participant.id._serialized === msg.author && !participant.isAdmin) 
+          return msg.reply("Você não pode enviar esse comando.");
           const contact = await client.getContactById(participant.id._serialized);
           mentions.push(contact);
           
@@ -591,6 +595,7 @@ client.on('message_create', async msg => {
     }
 
   }
+
   else if (msg.body === '!cht') {
     const chats = await client.getChats();
     client.sendMessage(msg.from, `O bot tem ${chats.length} chats abertos.`);
@@ -601,7 +606,7 @@ client.on('message_create', async msg => {
 client.on('group_join', async (notification) => {
   // LISTAR GRUPOS
   const groups = await client.getChats()
-  console.log('-----------------------------\nBOT-Zeus Grupos atualizados:\n-----------------------------')
+  
   try{
     for (const group of groups){
       if(group.id.server.includes('g.us')){
@@ -609,7 +614,7 @@ client.on('group_join', async (notification) => {
       }
     }
   } catch (e){
-    console.log('© Inacio Informatica')
+    console.log('© Inacio Informatica: '+e)
   }
 
   // GRAVAR USUÁRIOS DO GRUPOS
