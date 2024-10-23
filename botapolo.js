@@ -329,7 +329,7 @@ function confighora(horaenvio) {
       }); 
 };
 
-EVENTO DE ESCUTA DE MENSAGENS RECEBIDAS PELA API
+//EVENTO DE ESCUTA DE MENSAGENS RECEBIDAS PELA API
 client.on('message', async msg => {
   if (msg.body === null) return;
   // REMOVER LINKS
