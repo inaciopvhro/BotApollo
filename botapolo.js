@@ -589,6 +589,8 @@ client.on('message_create', async msg => {
       if (quotedMsg.hasMedia) {
         const attachmentData = await quotedMsg.downloadMedia();
         await chat.sendMessage(attachmentData, {mentions: mentions, caption: quotedMsg.body});
+      } else {
+        await chat.sendMessage(quotedMsg.body, { mentions: mentions });
       }
     } catch (e){
       console.log('© Bot Apollo '+e)
