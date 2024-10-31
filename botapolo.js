@@ -100,51 +100,44 @@ client.initialize();
 
 // EVENTOS DE CONEXÃO EXPORTADOS PARA O INDEX.HTML VIA SOCKET
 io.on('connection', function(socket) {
-  socket.emit('message', '© BOT-Zeus - Iniciado');
+  socket.emit('message', '© BOT-Apollo - Iniciado');
   socket.emit('qr', './whatsappDesconetado.png');
 
 client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
     qrcode.toDataURL(qr, (err, url) => {
       socket.emit('qr', url);
-      socket.emit('message', '© BOT-Zeus QRCode recebido, aponte a câmera do seu celular!');
+      socket.emit('message', '© BOT-Apollo QRCode recebido, aponte a câmera do seu celular!');
     });
 });
 
 if (client.on('authenticated', (session) => {
-    socket.emit('authenticated', '© BOT-Zeus Autenticado!');
-    socket.emit('message', '© BOT-Zeus Autenticado!');
-    console.log('© BOT-Zeus Autenticado');
+    socket.emit('authenticated', '© BOT-Apollo Autenticado!');
+    socket.emit('message', '© BOT-Apollo Autenticado!');
+    console.log('© BOT-Apoll Autenticado');
 }));
 
 client.on('auth_failure', function() {
-    socket.emit('message', '© BOT-Zeus Falha na autenticação, reiniciando...');
-    console.error('© BOT-Zeus Falha na autenticação');
+    socket.emit('message', '© BOT-Apollo Falha na autenticação, reiniciando...');
+    console.error('© BOT-Apollo Falha na autenticação');
 });
 
 client.on('change_state', state => {
-  console.log('© BOT-Zeus Status de conexão: ', state );
-  socket.emit('message', '© BOT-Zeus Status de conexão: '+ state);
+  console.log('© BOT-Apollo Status de conexão: ', state );
+  socket.emit('message', '© BOT-Apollo Status de conexão: '+ state);
 });
 
 client.on('disconnected', (reason) => {
-  socket.emit('message', '© BOT-Zeus Cliente desconectado!');
-  console.log('© BOT-Zeus Cliente desconectado', reason);
+  socket.emit('message', '© BOT-Apollo Cliente desconectado!');
+  console.log('© BOT-Apollo Cliente desconectado', reason);
   
 });
  (client.on('ready', async () => {
-  socket.emit('ready', '© BOT-Zeus Dispositivo pronto!');
-  socket.emit('message', '© BOT-Zeus Dispositivo pronto!');
+  socket.emit('ready', '© BOT-Apollo Dispositivo pronto!');
+  socket.emit('message', '© BOT-Apollo Dispositivo pronto!');
   socket.emit('qr', './whatsappConectado.png');
-  console.log('© BOT-Zeus Dispositivo pronto');
-  const groups = await client.getChats()
-  for (const group of groups){
-    if(group.id.server.includes('g.us')){
-      socket.emit('mesnome', group.name);
-      socket.emit('mesid', group.id._serialized.split('@')[0]);
-    }
-  }
-  socket.emit('var', '© BOT-Zeus Grupos atualizados!');
+  console.log('© BOT-Apollo Dispositivo pronto');
+    
   }));
 });
 
@@ -671,5 +664,5 @@ client.on('group_join', async (notification) => {
 
 // INITIALIZE DO SERVIÇO
 server.listen(port, function() {
-  console.log('© Bot Zeus - Aplicativo rodando na porta *: ' + port);
+  console.log('© Bot Apollo - Aplicativo rodando na porta *: ' + port);
 });
