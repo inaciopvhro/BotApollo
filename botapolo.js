@@ -82,7 +82,7 @@ const client = new Client({
   puppeteer: { headless: true,
   //executablePath: '/usr/bin/google-chrome-stable',
   //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  //executablePath: '/usr/bin/chromium-browser',  
+  executablePath: '/usr/bin/chromium-browser',  
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -103,17 +103,17 @@ io.on('connection', function(socket) {
   socket.emit('message', '© BOT-Apollo - Iniciado');
   socket.emit('qr', './whatsappDesconetado.png');
 
-  if (client.pupPage) {
-    socket.emit('message', '© BOT-Apollo Dispositivo pronto!');
-    socket.emit('qr', './whatsappConectado.png'); 
-    const groups = client.getChats()
-    for (const group of groups){
-      if(group.id.server.includes('g.us')){
-        socket.emit('relatorio', 'Nome: ' + group.name + ' - ID: ' + group.id._serialized.split('@')[0]);
+  // if (client.pupPage) {
+  //   socket.emit('message', '© BOT-Apollo Dispositivo pronto!');
+  //   socket.emit('qr', './whatsappConectado.png'); 
+  //   const groups = client.getChats()
+  //   for (const group of groups){
+  //     if(group.id.server.includes('g.us')){
+  //       socket.emit('relatorio', 'Nome: ' + group.name + ' - ID: ' + group.id._serialized.split('@')[0]);
         
-      }
-    }    
-  }
+  //     }
+  //   }    
+  // }
 
 client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
