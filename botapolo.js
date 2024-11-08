@@ -22,6 +22,8 @@ var nIntervId3;
 // NUMEROS AUTORIZADOS
 const permissaoBot = ["556992102573@c.us", "5511994011877@c.us", "5515997863796@c.us", "557592364492@c.us", "556993654141@c.us", "559294139575@c.us" ];
 
+const comandosBot = ["!env1", "!env2", "!env3", "!assu", "!desc", "!fcgr", "abgr", "!pdr"];
+
 function delay(t, v) {
   return new Promise(function(resolve) {
       setTimeout(resolve.bind(null, v), t)
