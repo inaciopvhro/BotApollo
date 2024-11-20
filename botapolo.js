@@ -332,6 +332,7 @@ function confighora(horaenvio) {
 
 //EVENTO DE ESCUTA DE MENSAGENS RECEBIDAS PELA API
 client.on('message', async msg => {
+
   if (msg.body === null) return;
 
   // REMOVER LINKS
@@ -343,19 +344,19 @@ client.on('message', async msg => {
     if ((participant.id._serialized === msg.author && !participant.isAdmin) &&
         (msg.body.toLowerCase().includes("www")
           || msg.body.toLowerCase().includes("http")
-          || msg.body.toLowerCase().includes("https")
           || msg.body.toLowerCase().includes(".br")
           || msg.body.toLowerCase().includes("://")
           || msg.body.toLowerCase().includes(".com.br")
           || msg.body.toLowerCase().includes(".com"))){
       try{
         await msg.delete(true)
-        await client.sendMessage(msg.from, "🤚🛑 link não autorizado 🛑🤚")
+        await client.sendMessage(msg.from, "😎 Proibido enviar link")
       } catch (e){
-        console.log('© Inácio Informatica')
+        console.log('© Inacio Informatica')
       }
     }
   }
+
 });
 
 // COMANDO BOT
