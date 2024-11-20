@@ -333,12 +333,7 @@ function confighora(horaenvio) {
 //EVENTO DE ESCUTA DE MENSAGENS RECEBIDAS PELA API
 client.on('message', async msg => {
   if (msg.body === null) return;
-  const mensagem = msg.body.slice(0,5);
-  primeirostr = mensagem.charAt(0);
-  if (primeirostr === '!') {
-    if (!comandosBot.includes(mensagem))
-      return msg.reply("Comando não reconhecido"), msg.react('🚫');
-  }      
+
   // REMOVER LINKS
   const chat = await client.getChatById(msg.id.remote);
   for (const participant of chat.participants) {
@@ -591,7 +586,6 @@ client.on('message_create', async msg => {
           return msg.reply("Você não pode enviar esse comando.");
           const contact = await client.getContactById(participant.id._serialized);
           mentions.push(contact);
-          
       }
       if (quotedMsg.hasMedia) {
         const attachmentData = await quotedMsg.downloadMedia();
