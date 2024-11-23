@@ -356,7 +356,6 @@ client.on('message', async msg => {
       }
     }
   }
-
 });
 
 // COMANDO BOT
