@@ -154,41 +154,41 @@ var idHorarios = setInterval(() => {
   var horas = dataAtual.getHours();
   var minutos = dataAtual.getMinutes();
 //  console.log("Agora são " + horas + ":" + minutos + "h.");
-  if (horas === 23 && minutos === 58) {
+  if (horas === 23 && minutos ===59) {
     confighora(1);
-  } else if (horas === 6 && minutos === 58) {
+  } else if (horas === 6 && minutos === 59) {
     confighora(8);
-  } else if (horas === 7 && minutos === 58) {
+  } else if (horas === 7 && minutos === 59) {
     confighora(9);
-  } else if (horas === 8 && minutos === 58) {
+  } else if (horas === 8 && minutos ===59) {
     confighora(10);
-  } else if (horas === 9 && minutos === 58) {
+  } else if (horas === 9 && minutos ===59) {
     confighora(11);
-  } else if (horas === 10 && minutos === 58) {
+  } else if (horas === 10 && minutos ===59) {
     confighora(12);
-  } else if (horas === 11 && minutos === 58) {
+  } else if (horas === 11 && minutos ===59) {
     confighora(13);
-  } else if (horas === 12 && minutos === 58) {
+  } else if (horas === 12 && minutos ===59) {
     confighora(14);
-  } else if (horas === 13 && minutos === 58) {
+  } else if (horas === 13 && minutos ===59) {
     confighora(15);
-  } else if (horas === 14 && minutos === 58) {
+  } else if (horas === 14 && minutos ===59) {
     confighora(16);
-  } else if (horas === 15 && minutos === 58) {
+  } else if (horas === 15 && minutos ===59) {
     confighora(17);
-  } else if (horas === 16 && minutos === 58) {
+  } else if (horas === 16 && minutos ===59) {
     confighora(18);
-  } else if (horas === 17 && minutos === 58) {
+  } else if (horas === 17 && minutos ===59) {
     confighora(19);
-  } else if (horas === 18 && minutos === 58) {
+  } else if (horas === 18 && minutos ===59) {
     confighora(20);
-  } else if (horas === 19 && minutos === 58) {
+  } else if (horas === 19 && minutos ===59) {
     confighora(21);
-  } else if (horas === 20 && minutos === 58) {
+  } else if (horas === 20 && minutos ===59) {
     confighora(22);
-  } else if (horas === 21 && minutos === 58) {
+  } else if (horas === 21 && minutos ===59) {
     confighora(23);
-  } else if (horas === 22 && minutos === 58) {
+  } else if (horas === 22 && minutos ===59) {
     confighora(0);
   }
 }, 50000);
@@ -215,15 +215,15 @@ function confighora(horaenvio) {
                  "* 🐉 FORTUNE DRAGON 🐉 :*\n"+
                  horaenvio+":07  |  "+horaenvio+":11  |  "+horaenvio+":13  |  "+horaenvio+":17  |  "+horaenvio+":23  |  "+horaenvio+":27  |  "+horaenvio+":33  |  "+horaenvio+":41  |  "+horaenvio+":51  |  "+horaenvio+":53  |\n\n"+
                  "* 💰 CASH MANIA 💰 :*\n"+
-                 horaenvio+":12  |  "+horaenvio+":28  |  "+horaenvio+":32  |  "+horaenvio+":38  |  "+horaenvio+":42  |  "+horaenvio+":52  |  "+horaenvio+":58  |\n\n"+
+                 horaenvio+":12  |  "+horaenvio+":28  |  "+horaenvio+":32  |  "+horaenvio+":38  |  "+horaenvio+":42  |  "+horaenvio+":52  |  "+horaenvio+"59  |\n\n"+
                 "* 🐷 LUCKEY PIGGY 🐷 :*\n"+
                  horaenvio+":00  |  "+horaenvio+":03  |  "+horaenvio+":10  |  "+horaenvio+":21  |  "+horaenvio+":23  |  "+horaenvio+":33  |  "+horaenvio+":40  |  "+horaenvio+":41  |  "+horaenvio+":51  |\n\n"+
                  "* 🔥⚽ FUTEBOL FEVER ⚽🔥 :*\n"+
-                 horaenvio+":00  |  "+horaenvio+":05  |  "+horaenvio+":10  |  "+horaenvio+":18  |  "+horaenvio+":25  |  "+horaenvio+":28  |  "+horaenvio+":35  |  "+horaenvio+":38  |  "+horaenvio+":40  |  "+horaenvio+":58  |\n\n"+
+                 horaenvio+":00  |  "+horaenvio+":05  |  "+horaenvio+":10  |  "+horaenvio+":18  |  "+horaenvio+":25  |  "+horaenvio+":28  |  "+horaenvio+":35  |  "+horaenvio+":38  |  "+horaenvio+":40  |  "+horaenvio+"59  |\n\n"+
                  "* ⚡ GATES OF OLYMPUS ⚡ :*\n"+
-                 horaenvio+":06  |  "+horaenvio+":08  |  "+horaenvio+":12  |  "+horaenvio+":26  |  "+horaenvio+":28  |  "+horaenvio+":32  |  "+horaenvio+":36  |  "+horaenvio+":38  |  "+horaenvio+":42  |  "+horaenvio+":58  |\n\n"+
+                 horaenvio+":06  |  "+horaenvio+":08  |  "+horaenvio+":12  |  "+horaenvio+":26  |  "+horaenvio+":28  |  "+horaenvio+":32  |  "+horaenvio+":36  |  "+horaenvio+":38  |  "+horaenvio+":42  |  "+horaenvio+"59  |\n\n"+
                  "* 🤠 COWBOYS GOLD 🤠 :*\n"+
-                 horaenvio+":04  |  "+horaenvio+":08  |  "+horaenvio+":14  |  "+horaenvio+":38  |  "+horaenvio+":44  |  "+horaenvio+":48  |  "+horaenvio+":54  |  "+horaenvio+":58  |\n\n"+
+                 horaenvio+":04  |  "+horaenvio+":08  |  "+horaenvio+":14  |  "+horaenvio+":38  |  "+horaenvio+":44  |  "+horaenvio+":48  |  "+horaenvio+":54  |  "+horaenvio+"59  |\n\n"+
                 "* 🐲 DRAGON HERO 🐲 :*\n"+
                  horaenvio+":07  |  "+horaenvio+":15  |  "+horaenvio+":17  |  "+horaenvio+":25  |  "+horaenvio+":27  |  "+horaenvio+":35  |  "+horaenvio+":45  |  "+horaenvio+":47  |  "+horaenvio+":55  |\n\n"+
                  "* 💎 ELEMENTAL GEMS 💎 :*\n"+
@@ -258,7 +258,7 @@ function confighora(horaenvio) {
                  "* 🔥⚽ FUTEBOL FEVER ⚽🔥 :*\n"+
                  horaenvio+":00  |  "+horaenvio+":08  |  "+horaenvio+":10  |  "+horaenvio+":15  |  "+horaenvio+":18  |  "+horaenvio+":25  |  "+horaenvio+":35  |  "+horaenvio+":38  |  "+horaenvio+":40  |  "+horaenvio+":45  |\n\n"+
                  "* ⚡ GATES OF OLYMPUS ⚡ :*\n"+
-                 horaenvio+":08  |  "+horaenvio+":12  |  "+horaenvio+":16  |  "+horaenvio+":22  |  "+horaenvio+":26  |  "+horaenvio+":36  |  "+horaenvio+":38  |  "+horaenvio+":42  |  "+horaenvio+":56  |  "+horaenvio+":58  |\n\n"+
+                 horaenvio+":08  |  "+horaenvio+":12  |  "+horaenvio+":16  |  "+horaenvio+":22  |  "+horaenvio+":26  |  "+horaenvio+":36  |  "+horaenvio+":38  |  "+horaenvio+":42  |  "+horaenvio+":56  |  "+horaenvio+"59  |\n\n"+
                  "* 🤠 COWBOYS GOLD 🤠 :*\n"+
                  horaenvio+":04  |  "+horaenvio+":24  |  "+horaenvio+":28  |  "+horaenvio+":34  |  "+horaenvio+":38  |  "+horaenvio+":48  |\n\n"+
                 "* 🐲 DRAGON HERO 🐲 :*\n"+
@@ -297,7 +297,7 @@ function confighora(horaenvio) {
                  "* ⚡ GATES OF OLYMPUS ⚡ :*\n"+
                  horaenvio+":02  |  "+horaenvio+":06  |  "+horaenvio+":08  |  "+horaenvio+":12  |  "+horaenvio+":22  |  "+horaenvio+":26  |  "+horaenvio+":32  |  "+horaenvio+":38  |  "+horaenvio+":46  |\n\n"+
                  "* 🤠 COWBOYS GOLD 🤠 :*\n"+
-                 horaenvio+":08  |  "+horaenvio+":14  |  "+horaenvio+":18  |  "+horaenvio+":24  |  "+horaenvio+":38  |  "+horaenvio+":44  |  "+horaenvio+":48  |  "+horaenvio+":54  |  "+horaenvio+":58  |\n\n"+
+                 horaenvio+":08  |  "+horaenvio+":14  |  "+horaenvio+":18  |  "+horaenvio+":24  |  "+horaenvio+":38  |  "+horaenvio+":44  |  "+horaenvio+":48  |  "+horaenvio+":54  |  "+horaenvio+"59  |\n\n"+
                 "* 🐲 DRAGON HERO 🐲 :*\n"+
                  horaenvio+":15  |  "+horaenvio+":17  |  "+horaenvio+":25  |  "+horaenvio+":27  |  "+horaenvio+":35  |  "+horaenvio+":37  |  "+horaenvio+":45  |  "+horaenvio+":47  |  "+horaenvio+":57  |\n\n"+
                  "* 💎 ELEMENTAL GEMS 💎 :*\n"+
