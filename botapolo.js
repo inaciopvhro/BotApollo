@@ -160,35 +160,35 @@ setInterval(() => {
     confighora(8);
   } else if (horas === 7 && minutos === 59) {
     confighora(9);
-  } else if (horas === 8 && minutos ===59) {
+  } else if (horas === 8 && minutos === 59) {
     confighora(10);
-  } else if (horas === 9 && minutos ===59) {
+  } else if (horas === 9 && minutos === 59) {
     confighora(11);
-  } else if (horas === 10 && minutos ===59) {
+  } else if (horas === 10 && minutos === 59) {
     confighora(12);
-  } else if (horas === 11 && minutos ===59) {
+  } else if (horas === 11 && minutos === 59) {
     confighora(13);
-  } else if (horas === 12 && minutos ===59) {
+  } else if (horas === 12 && minutos === 59) {
     confighora(14);
-  } else if (horas === 13 && minutos ===59) {
+  } else if (horas === 13 && minutos === 59) {
     confighora(15);
-  } else if (horas === 14 && minutos ===59) {
+  } else if (horas === 14 && minutos === 59) {
     confighora(16);
-  } else if (horas === 15 && minutos ===59) {
+  } else if (horas === 15 && minutos === 59) {
     confighora(17);
-  } else if (horas === 16 && minutos ===59) {
+  } else if (horas === 16 && minutos === 59) {
     confighora(18);
-  } else if (horas === 17 && minutos ===59) {
+  } else if (horas === 17 && minutos === 59) {
     confighora(19);
-  } else if (horas === 18 && minutos ===59) {
+  } else if (horas === 18 && minutos === 59) {
     confighora(20);
-  } else if (horas === 19 && minutos ===59) {
+  } else if (horas === 19 && minutos === 59) {
     confighora(21);
-  } else if (horas === 20 && minutos ===59) {
+  } else if (horas === 20 && minutos === 59) {
     confighora(22);
-  } else if (horas === 21 && minutos ===59) {
+  } else if (horas === 21 && minutos === 59) {
     confighora(23);
-  } else if (horas === 22 && minutos ===59) {
+  } else if (horas === 22 && minutos === 59) {
     confighora(0);
   }
 }, 50000);
