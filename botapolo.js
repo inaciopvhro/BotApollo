@@ -149,7 +149,7 @@ client.on('disconnected', (reason) => {
   }));
 });
 
-var idHorarios = setInterval(() => {
+setInterval(() => {
   var dataAtual = new Date();
   var horas = dataAtual.getHours();
   var minutos = dataAtual.getMinutes();
