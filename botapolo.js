@@ -597,6 +597,12 @@ client.on('message_create', async msg => {
       console.log('© Bot Apollo '+e)
     }
   }
+  if (msg.body === '!hrs') {
+    if (!permissaoBot.includes(msg.author || msg.from)) return msg.reply("Você não pode enviar esse comando.");
+    var data = new Date();
+    var hrs = data.getHours();
+    confighora(hrs+1);  
+  }  
 }); 
 
 // EVENTO DE NOVO USUÁRIO EM GRUPO
